@@ -8,7 +8,8 @@ In a hipchat room, typing:
 Would have this script post the following image URI to the room, along with a preview of the image in the room.
 http://blog-content.hipchat.com/wp-content/uploads/2010/03/SXSW2010-utexas-HCI-professor-chris_rivers-hipchat-shirt.png
 
-Be careful as this can cause a lot of productivity loss with room users finding interesting search results. 
+* Google Safe-search is on by default. 
+* Be careful as introducing this may cause a productivity loss with room users finding interesting search results. 
 
 Install
 ====
