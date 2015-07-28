@@ -13,7 +13,10 @@ http://blog-content.hipchat.com/wp-content/uploads/2010/03/SXSW2010-utexas-HCI-p
 
 Install
 ====
+* bundle install
 * Use Hipchat's "Build your own" integration plugin to set up a public endpoint on which this script listens for POST calls from Hipchat. 
 * Assign a command to the app in the integration creation screen (currently /i is handled but can be easily adjusted)
 * Take the API token displayed and place it in the "tokens" hash as the value for a key containing the name of the room in which you create the integration. Multiple rooms are supported, just add another key to the tokens hash.
 * Make sure the configured endpoint is reachable externally
+
+Tested with Ruby 2.2
