@@ -7,7 +7,7 @@ tokens =  {
   'room name' => 'PLACE INTEGRATION API KEY HERE',
   'other room' => 'PLACE INTEGRATION API KEY HERE'
 }
-# Set the listen port here. Ports over 1024 are recommended so non-root user can bind. 
+# Set the listen port here. Ports over 1024 are recommended so non-root user can bind.
 server = TCPServer.new('0.0.0.0', 8080)
 # Set the command configured in integration screen in Hipchat Admin
 command = '/i'
@@ -30,10 +30,12 @@ loop do
         m = json['item']['message']['message']
         r = json['item']['room']['name']
         if m.start_with? command
-          query = m.split(' ')[1..-1].join(' ')
-          print "googling #{query}: " 
-          img = Google::Search::Image.new(:query => query, :safe => :active).first
-          puts "#{img.uri}" 
+          query = m.split(' ')[1..-1]
+          animated = query.include? "ani"
+          query = query.select{|x| "ani" != x}.join(' ')
+          print "googling #{animated ? '(animated) ' : ''}#{query}: "
+          img = Google::Search::Image.new(:query => query, :safe => :active, :imgtype => animated ? "animated" : "any").first
+          puts "#{img.uri}"
           hc = HipChat::Client.new(tokens[r], :api_version => 'v2')
           hc[r].send('Google', img.uri, :color => color,  :message_format => 'text')
         end
