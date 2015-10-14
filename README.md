@@ -1,3 +1,5 @@
+UPDATE: Google has recently updated the public API that this app uses and broke the functionality when searching for animated images. 
+
 # hipchat-google-image
 
 Add functionality to your hipchat rooms with this integration. When configured and running, type a simple command to display the first result of a google image search based on the text after the command. Think of it like Google's "I'm feeling lucky" button, but with image results, in Hipchat rooms. 
